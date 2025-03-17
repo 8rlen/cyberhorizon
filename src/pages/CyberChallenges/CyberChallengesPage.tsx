@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookOpen, BrainCircuit, GameController2, AlertCircle, CheckCircle } from "lucide-react";
+import { BookOpen, BrainCircuit, Gamepad2, AlertCircle, CheckCircle } from "lucide-react";
 import CodeBreaker from "@/components/interactive/CodeBreaker";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -156,7 +156,7 @@ const CyberChallengesPage = () => {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="codebreaker" className="flex items-center gap-2">
-              <GameController2 className="h-4 w-4" />
+              <Gamepad2 className="h-4 w-4" />
               CodeBreaker Challenge
             </TabsTrigger>
             <TabsTrigger value="quiz" className="flex items-center gap-2">
@@ -203,10 +203,10 @@ const CyberChallengesPage = () => {
                       <h3 className="text-lg font-semibold mb-4">{currentQuestion.question}</h3>
                       
                       {currentQuestion.type === 'mcq' && (
-                        <RadioGroup value={selectedAnswer as string} onValueChange={(value) => handleAnswerSelect(parseInt(value))} className="space-y-3" disabled={showResult}>
+                        <RadioGroup value={String(selectedAnswer)} onValueChange={(value) => handleAnswerSelect(parseInt(value))} className="space-y-3" disabled={showResult}>
                           {currentQuestion.options.map((option, index) => (
                             <div key={index} className="flex items-center space-x-2">
-                              <RadioGroupItem value={index.toString()} id={`option-${index}`} />
+                              <RadioGroupItem value={String(index)} id={`option-${index}`} />
                               <Label htmlFor={`option-${index}`} className="flex-1">
                                 {option}
                               </Label>
@@ -216,7 +216,7 @@ const CyberChallengesPage = () => {
                       )}
                       
                       {currentQuestion.type === 'tf' && (
-                        <RadioGroup value={selectedAnswer as string} onValueChange={(value) => handleAnswerSelect(value === 'true')} className="space-y-3" disabled={showResult}>
+                        <RadioGroup value={String(selectedAnswer)} onValueChange={(value) => handleAnswerSelect(value === 'true')} className="space-y-3" disabled={showResult}>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="true" id="true" />
                             <Label htmlFor="true">True</Label>
