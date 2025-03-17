@@ -13,6 +13,7 @@ import LandingPage from "@/pages/Landing/LandingPage";
 import LoginPage from "@/pages/Auth/LoginPage";
 import RegisterPage from "@/pages/Auth/RegisterPage";
 import NotFound from "@/pages/NotFound";
+import CyberChallengesPage from "@/pages/CyberChallenges/CyberChallengesPage";
 
 // Dashboard and Main App Pages
 import DashboardPage from "@/pages/Dashboard/DashboardPage";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/cyber-challenges" element={<CyberChallengesPage />} />
             
             {/* Protected routes - Wrapped with AppLayout */}
             <Route
