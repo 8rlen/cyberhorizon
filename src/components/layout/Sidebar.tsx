@@ -83,7 +83,7 @@ export const Sidebar = ({ mobileOpen, setMobileOpen }: { mobileOpen?: boolean, s
   };
 
   return (
-    <ShadcnSidebar open={!isMobile || mobileOpen} className="transition-all duration-300">
+    <ShadcnSidebar className={cn("transition-all duration-300", mobileOpen ? "block" : "hidden md:block")}>
       <SidebarContent className="py-6 flex flex-col h-full">
         <div className="px-6 mb-8">
           <Logo />
