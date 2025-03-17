@@ -22,7 +22,8 @@ import {
   Zap,
   Sparkles,
   Braces,
-  Globe
+  Globe,
+  Shield
 } from "lucide-react";
 
 const LandingPage = () => {
