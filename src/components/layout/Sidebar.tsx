@@ -17,7 +17,10 @@ import {
   Wrench, 
   Users, 
   LogOut,
-  Home
+  Home,
+  Rocket,
+  Globe,
+  Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/shared/Logo";
@@ -55,6 +58,12 @@ const menuItems = [
     roles: ["admin", "instructor", "student"] 
   },
   { 
+    label: "Community", 
+    icon: Globe, 
+    path: "/community", 
+    roles: ["admin", "instructor", "student"] 
+  },
+  { 
     label: "Analytics", 
     icon: BarChart, 
     path: "/analytics", 
@@ -64,6 +73,12 @@ const menuItems = [
     label: "User Management", 
     icon: Users, 
     path: "/users", 
+    roles: ["admin"] 
+  },
+  { 
+    label: "System Settings", 
+    icon: Zap, 
+    path: "/settings", 
     roles: ["admin"] 
   },
 ];
@@ -86,7 +101,7 @@ export const Sidebar = ({ mobileOpen, setMobileOpen }: { mobileOpen?: boolean, s
     <ShadcnSidebar className={cn("transition-all duration-300", mobileOpen ? "block" : "hidden md:block")}>
       <SidebarContent className="py-6 flex flex-col h-full">
         <div className="px-6 mb-8">
-          <Logo />
+          <Logo variant="sidebar" />
         </div>
 
         <div className="flex-1 px-3">

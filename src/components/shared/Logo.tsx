@@ -41,7 +41,7 @@ const Logo = ({
         variant === "sidebar" && "text-sidebar-foreground",
         textClassName
       )}>
-        SecurePath
+        CyberHorizon
       </span>
     </Link>
   );

@@ -2,12 +2,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import Logo from "@/components/shared/Logo";
-import { CheckCircle, ArrowRight, ShieldCheck, BookOpen, Award, Flag, Briefcase } from "lucide-react";
+import ThreeScene from "@/components/3d/ThreeScene";
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  ShieldCheck, 
+  BookOpen, 
+  Award, 
+  Flag, 
+  Briefcase, 
+  Code, 
+  Library, 
+  Share2, 
+  Users, 
+  BarChart, 
+  Rocket,
+  Zap,
+  Sparkles,
+  Braces,
+  Globe
+} from "lucide-react";
 
 const LandingPage = () => {
   return (
-    <div className="bg-background min-h-screen flex flex-col">
+    <div className="bg-background min-h-screen flex flex-col relative overflow-hidden">
+      {/* 3D Background */}
+      <ThreeScene />
+      
       {/* Navbar */}
       <header className="border-b border-border/40 bg-background/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,15 +57,15 @@ const LandingPage = () => {
       </header>
       
       {/* Hero section */}
-      <section className="pt-32 px-4 sm:px-6 lg:px-8 container mx-auto">
+      <section className="pt-32 px-4 sm:px-6 lg:px-8 container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-slide-down">
             <span className="rounded-full w-2 h-2 bg-primary mr-2"></span>
-            The most comprehensive cybersecurity platform
+            The next generation cybersecurity learning platform
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance animate-slide-up">
-            Master Cybersecurity with <br/>
-            <span className="text-primary">Expert-Led Training</span>
+            Elevate Your Cybersecurity Skills with <br/>
+            <span className="gradient-text">CyberHorizon</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "100ms" }}>
             Learn practical cybersecurity skills through interactive courses, 
@@ -61,13 +84,31 @@ const LandingPage = () => {
               </Button>
             </Link>
           </div>
+          
+          <div className="mt-16 relative">
+            <div className="absolute inset-0 hero-gradient"></div>
+            <div className="relative">
+              <h2 className="text-2xl font-bold mb-8">Try Our Interactive 3D Environment</h2>
+              <Card className="mx-auto max-w-3xl overflow-hidden border-primary/20 bg-card/50 backdrop-blur">
+                <CardContent className="p-0 h-[350px] relative">
+                  <ThreeScene interactive={true} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 text-white text-center">
+                      <p className="font-medium">Click and drag to interact!</p>
+                      <p className="text-sm text-white/80 mt-1">Just like our hands-on cybersecurity labs</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
       
       {/* Features section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 container mx-auto">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Why Learn with SecurePath?</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Learn with CyberHorizon?</h2>
           <p className="text-muted-foreground">Our platform combines theory with practice to provide the most effective cybersecurity training experience.</p>
         </div>
         
@@ -99,19 +140,107 @@ const LandingPage = () => {
               description: "Progress through structured learning paths that prepare you for industry certifications."
             },
             {
-              icon: CheckCircle,
+              icon: Rocket,
               title: "Progress Tracking",
               description: "Track your learning journey with detailed progress and performance metrics."
             },
+            {
+              icon: Zap,
+              title: "Adaptive Learning",
+              description: "Personalized learning paths adapted to your skill level and learning pace."
+            },
+            {
+              icon: Code,
+              title: "Coding Exercises",
+              description: "Improve your security coding skills with guided programming exercises."
+            },
+            {
+              icon: Globe,
+              title: "Global Community",
+              description: "Connect with cybersecurity professionals and students from around the world."
+            },
           ].map((feature, index) => (
-            <div key={index} className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <feature.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </div>
+            <Card key={index} className="border border-primary/10 card-hover-effect">
+              <CardContent className="pt-6">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <feature.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+      </section>
+
+      {/* Learning paths section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 container mx-auto relative z-10 bg-gradient-to-br from-primary/5 to-background rounded-3xl">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Specialized Learning Paths</h2>
+          <p className="text-muted-foreground">Structured learning journeys designed to build your expertise in specific cybersecurity domains.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {[
+            {
+              icon: Shield,
+              title: "Network Security",
+              description: "Master network security principles, tools, and best practices.",
+              courses: 12,
+              labs: 24
+            },
+            {
+              icon: Braces,
+              title: "Application Security",
+              description: "Learn to develop secure applications and identify vulnerabilities.",
+              courses: 15,
+              labs: 30
+            },
+            {
+              icon: Sparkles,
+              title: "Ethical Hacking",
+              description: "Develop ethical hacking skills with practical penetration testing techniques.",
+              courses: 18,
+              labs: 36
+            },
+            {
+              icon: BarChart,
+              title: "Security Analysis",
+              description: "Learn to analyze and respond to security threats and incidents.",
+              courses: 14,
+              labs: 28
+            },
+          ].map((path, index) => (
+            <Card key={index} className="border border-primary/10 overflow-hidden card-hover-effect">
+              <div className="h-2 bg-gradient-to-r from-primary to-primary/60"></div>
+              <CardContent className="pt-6">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <path.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <BookOpen className="h-4 w-4 mr-1" /> {path.courses} Courses
+                    <span className="mx-2">•</span>
+                    <Library className="h-4 w-4 mr-1" /> {path.labs} Labs
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{path.title}</h3>
+                <p className="text-muted-foreground mb-4">{path.description}</p>
+                <Link to="/paths" className="text-primary font-medium flex items-center hover:underline">
+                  Explore Path <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <Link to="/paths">
+            <Button variant="outline" className="font-medium">
+              View All Learning Paths
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
       
@@ -176,7 +305,7 @@ const LandingPage = () => {
           
           <div className="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} SecurePath. All rights reserved.
+              &copy; {new Date().getFullYear()} CyberHorizon. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-muted-foreground hover:text-foreground">
