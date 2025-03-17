@@ -1,10 +1,9 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Logo from "@/components/shared/Logo";
-import ThreeScene from "@/components/3d/ThreeScene";
+import CodeBreaker from "@/components/interactive/CodeBreaker";
 import { 
   CheckCircle, 
   ArrowRight, 
@@ -29,8 +28,8 @@ import {
 const LandingPage = () => {
   return (
     <div className="bg-background min-h-screen flex flex-col relative overflow-hidden">
-      {/* 3D Background */}
-      <ThreeScene />
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
       {/* Navbar */}
       <header className="border-b border-border/40 bg-background/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
@@ -89,16 +88,10 @@ const LandingPage = () => {
           <div className="mt-16 relative">
             <div className="absolute inset-0 hero-gradient"></div>
             <div className="relative">
-              <h2 className="text-2xl font-bold mb-8">Try Our Interactive 3D Environment</h2>
-              <Card className="mx-auto max-w-3xl overflow-hidden border-primary/20 bg-card/50 backdrop-blur">
-                <CardContent className="p-0 h-[350px] relative">
-                  <ThreeScene interactive={true} />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 text-white text-center">
-                      <p className="font-medium">Click and drag to interact!</p>
-                      <p className="text-sm text-white/80 mt-1">Just like our hands-on cybersecurity labs</p>
-                    </div>
-                  </div>
+              <h2 className="text-2xl font-bold mb-8">Try Our Interactive Security Challenge</h2>
+              <Card className="mx-auto max-w-2xl overflow-hidden border-primary/20 bg-card/50 backdrop-blur">
+                <CardContent className="p-4 relative">
+                  <CodeBreaker />
                 </CardContent>
               </Card>
             </div>
@@ -163,7 +156,7 @@ const LandingPage = () => {
           ].map((feature, index) => (
             <Card key={index} className="border border-primary/10 card-hover-effect">
               <CardContent className="pt-6">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
