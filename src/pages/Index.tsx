@@ -2,13 +2,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, BookOpen, Award, Flag, Code, Zap } from "lucide-react";
+import { ArrowRight, ShieldCheck, BookOpen, Award, Flag, Code, Zap, Gamepad2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      
+      {/* Navigation */}
+      <header className="w-full py-4 px-6 flex justify-between items-center border-b border-border/40 bg-background/95 backdrop-blur-sm">
+        <div className="text-xl font-bold">CyberHorizon</div>
+        <nav className="flex gap-4">
+          <Link to="/cyber-challenges" className="text-primary hover:underline flex items-center">
+            <Gamepad2 className="h-4 w-4 mr-1" /> Challenges
+          </Link>
+          <Link to="/login" className="text-foreground/80 hover:text-foreground">Login</Link>
+          <Link to="/register">
+            <Button size="sm" variant="outline">Register</Button>
+          </Link>
+        </nav>
+      </header>
       
       {/* Hero section */}
       <div className="text-center relative z-10 px-4 max-w-4xl mx-auto mt-20 mb-16">
@@ -36,6 +50,55 @@ const Index = () => {
             </Button>
           </Link>
         </div>
+      </div>
+      
+      {/* Featured Challenge Card */}
+      <div className="w-full max-w-4xl mx-auto mb-16 px-4">
+        <Card className="overflow-hidden border border-primary/20 bg-card/50 backdrop-blur shadow-lg">
+          <CardContent className="p-0">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2 bg-primary/10 p-8 flex flex-col justify-center">
+                <h2 className="text-2xl font-bold mb-4">Test Your Cyber Knowledge</h2>
+                <p className="text-muted-foreground mb-6">
+                  Challenge yourself with interactive cybersecurity puzzles and knowledge tests. Are you ready to prove your skills?
+                </p>
+                <Link to="/cyber-challenges">
+                  <Button className="w-full sm:w-auto">
+                    Start the Challenge
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="md:w-1/2 bg-primary/5 p-8 flex flex-col justify-center">
+                <div className="flex gap-4 mb-4">
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Gamepad2 className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Code className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Flag className="h-5 w-5 text-primary" />
+                  </div>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    Interactive CodeBreaker puzzles
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    Cybersecurity knowledge quizzes
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    Test your skills with real-world scenarios
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
       
       {/* Features section */}
